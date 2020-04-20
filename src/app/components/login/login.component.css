@@ -1,0 +1,12 @@
+.container {
+  border-radius: 16px;
+  padding: 15px;
+}
+
+.buttons {
+  justify-content: center;
+}
+
+.input:focus {
+  border-color: orange;
+}
