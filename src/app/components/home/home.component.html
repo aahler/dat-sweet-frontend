@@ -24,8 +24,12 @@
         <div class="card-footer">
           <div class="card-footer-item">
             <div class="buttons">
-              <button class="button is-primary">Edit</button>
-              <button class="button is-danger">Delete</button>
+              <button class="button is-primary" (click)="edit(post)">
+                Edit
+              </button>
+              <button class="button is-danger" (click)="delete(post)">
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -33,3 +37,4 @@
     </div>
   </div>
 </div>
+<app-edit *ngIf="data" [data]="data"></app-edit>

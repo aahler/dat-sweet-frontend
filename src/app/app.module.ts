@@ -7,9 +7,10 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, HeaderComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, HeaderComponent, EditComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

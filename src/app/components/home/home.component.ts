@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { BlogPost } from "src/app/interfaces/blogPost";
 
 @Component({
   selector: "app-home",
@@ -7,6 +8,19 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HomeComponent implements OnInit {
   constructor() {}
+
+  data: BlogPost = null;
+
+  delete(i: BlogPost) {
+    const index = this.blogPosts.indexOf(i, 0);
+    if (index > -1) {
+      this.blogPosts.splice(index, 1);
+    }
+  }
+
+  edit(i: BlogPost) {
+    this.data = i;
+  }
 
   ngOnInit(): void {}
   date: Date = new Date();
@@ -105,26 +119,4 @@ interface PageContent {
     image: boolean;
     text: string;
   };
-}
-
-interface BlogPost {
-  title: string;
-  intro: string;
-  content: string;
-  image: {
-    url: string;
-    description: string;
-    alt: string;
-    filename: string;
-  };
-  author: {
-    id: string;
-    name: string;
-    avatar: string;
-  };
-  category: string;
-  published: boolean;
-  dateCreated: Date;
-  datePublished: Date;
-  lastModified: Date;
 }
