@@ -1,11 +1,25 @@
 <div class="modal is-active">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <div class="field">
-      <div class="control">
-        <label class="label">Title of post</label>
-        <input class="input is-primary" [(ngModel)]="data.title" />
+  <div class="modal-background" (click)="closing()"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Edit this post</p>
+      <button class="delete" aria-label="close" (click)="closing()"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="field">
+        <div class="control">
+          <label class="label">Title of post</label>
+          <input class="input is-primary" [(ngModel)]="data.title" />
+        </div>
       </div>
-    </div>
+    </section>
+    <footer class="modal-card-foot">
+      <div class="buttons">
+        <button class="button is-success" (click)="savePost()">
+          Save Changes
+        </button>
+        <button class="button is-danger" (click)="closing()">Cancel</button>
+      </div>
+    </footer>
   </div>
 </div>

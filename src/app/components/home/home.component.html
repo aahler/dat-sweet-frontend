@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="section">
   <div class="columns">
-    <div class="column" *ngFor="let post of blogPosts">
+    <div class="column" *ngFor="let post of blogPosts; let i = index">
       <div class="card">
         <div class="card-header">
           <h2 class="card-header-title">{{ post.title }}</h2>
@@ -24,7 +24,7 @@
         <div class="card-footer">
           <div class="card-footer-item">
             <div class="buttons">
-              <button class="button is-primary" (click)="edit(post)">
+              <button class="button is-primary" (click)="edit(post, index)">
                 Edit
               </button>
               <button class="button is-danger" (click)="delete(post)">
@@ -37,4 +37,9 @@
     </div>
   </div>
 </div>
-<app-edit *ngIf="data" [data]="data"></app-edit>
+<app-edit
+  *ngIf="opened"
+  [data]="data"
+  [index]="index"
+  (close)="openModal()"
+></app-edit>
