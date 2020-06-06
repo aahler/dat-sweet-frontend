@@ -1,33 +1,67 @@
 <app-header></app-header>
 <div class="section">
+  <div
+    class="dropdown"
+    *ngIf="categories"
+    (click)="clickEvent()"
+    [ngClass]="status ? 'is-active' : ''"
+  >
+    <div class="dropdown-trigger">
+      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+        Select a Category
+      </button>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+      <div class="dropdown-content">
+        <a class="dropdown-item" (click)="filter('All')">
+          All
+        </a>
+        <div *ngFor="let category of categories">
+          <a class="dropdown-item" (click)="filter(category)">
+            {{ category }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
   <div class="columns" *ngFor="let post of blogPosts; let i = index">
     <div class="column">
       <div class="card">
         <div class="card-header">
           <h2 class="card-header-title">{{ post.title }}</h2>
         </div>
-        <div class="card-content">
-          <p class="subtitle">{{ post.content }}</p>
+        <div class="card-image" *ngIf="post.image.url != ''">
+          <figure class="image is-3by1">
+            <img src="{{ post.image.url }}" alt="{{ post.image.alt }}" />
+          </figure>
         </div>
-        <div class="card-footer">
-          <div class="card-footer-item">
-            <div>
-              <p>Written by: {{ post.author.name }}</p>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48" *ngIf="post.author.avatar != ''">
+                <img src="{{ post.author.avatar }}" alt="Avatar Photo" />
+              </figure>
             </div>
-            <div>
-              <p>On: {{ post.dateCreated | date: "MM/dd/yyyy" }}</p>
+            <div class="media-content">
+              <p class="title is-4">{{ post.author.name }}</p>
+              <p class="subtitle is-6">
+                Created: {{ post.dateCreated | date: "MM/dd/yyyy" }}<br />
+                Modified: {{ post.lastModified | date: "MM/dd/yyyy" }}<br />
+                <span *ngIf="post.datePublished"
+                  >Published:
+                  {{ post.datePublished | date: "MM/dd/yyyy" }}</span
+                >
+              </p>
             </div>
           </div>
+          <div class="content">
+            <p class="subtitle is-6">{{ post.content }}</p>
+          </div>
+        </div>
+        <div class="card-footer">
           <div class="card-footer-item">
             <p>{{ post.published ? "Published" : "Not Published" }}</p>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="card-footer-item">
-            <p>
-              Created: {{ post.dateCreated | date: "MM/dd/yyyy" }} Modified:
-              {{ post.lastModified | date: "MM/dd/yyyy" }}
-            </p>
           </div>
         </div>
         <div class="card-footer">
