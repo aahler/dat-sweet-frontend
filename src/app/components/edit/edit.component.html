@@ -12,6 +12,19 @@
           <input class="input is-primary" [(ngModel)]="data.title" />
         </div>
       </div>
+      <div class="field">
+        <div class="control">
+          <label class="label">Post content</label>
+          <textarea
+            class="textarea is-primary"
+            [(ngModel)]="data.content"
+          ></textarea>
+        </div>
+      </div>
+      <label class="checkbox">
+        <input type="checkbox" [(ngModel)]="data.published" />
+        Published
+      </label>
     </section>
     <footer class="modal-card-foot">
       <div class="buttons">

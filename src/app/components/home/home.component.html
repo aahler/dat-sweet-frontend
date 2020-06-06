@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="section">
-  <div class="columns">
-    <div class="column" *ngFor="let post of blogPosts; let i = index">
+  <div class="columns" *ngFor="let post of blogPosts; let i = index">
+    <div class="column">
       <div class="card">
         <div class="card-header">
           <h2 class="card-header-title">{{ post.title }}</h2>
@@ -11,14 +11,23 @@
         </div>
         <div class="card-footer">
           <div class="card-footer-item">
-            <p>Written by: {{ post.author.name }}</p>
-            <p>On: {{ post.dateCreated | date: "MM/dd/yyyy" }}</p>
+            <div>
+              <p>Written by: {{ post.author.name }}</p>
+            </div>
+            <div>
+              <p>On: {{ post.dateCreated | date: "MM/dd/yyyy" }}</p>
+            </div>
           </div>
           <div class="card-footer-item">
-            <label class="checkbox">
-              <input type="checkbox" [(ngModel)]="post.published" />
-              Published
-            </label>
+            <p>{{ post.published ? "Published" : "Not Published" }}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-footer-item">
+            <p>
+              Created: {{ post.dateCreated | date: "MM/dd/yyyy" }} Modified:
+              {{ post.lastModified | date: "MM/dd/yyyy" }}
+            </p>
           </div>
         </div>
         <div class="card-footer">

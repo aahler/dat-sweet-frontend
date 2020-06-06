@@ -18,7 +18,7 @@ export class FakeData {
         avatar: "",
       },
       category: "Default",
-      published: true,
+      published: false,
       dateCreated: new Date(),
       datePublished: new Date(),
       lastModified: new Date(),
