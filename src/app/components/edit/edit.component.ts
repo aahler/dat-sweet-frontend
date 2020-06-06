@@ -25,6 +25,10 @@ export class EditComponent implements OnInit {
     this.close.emit("close");
   }
 
+  onFileChanged(e) {
+    console.log(e.target.files[0]);
+  }
+
   savePost() {
     this.blogPosts[this.index] = this.data;
     this.closing();

@@ -21,6 +21,23 @@
           ></textarea>
         </div>
       </div>
+      <div class="field">
+        <div class="control">
+          <label class="label">Image</label>
+          <input
+            type="file"
+            style="display: none;"
+            #pictureUpload
+            (change)="onFileChanged($event)"
+          />
+          <button
+            class="button is-primary is-outlined"
+            (click)="pictureUpload.click()"
+          >
+            Select an image
+          </button>
+        </div>
+      </div>
       <label class="checkbox">
         <input type="checkbox" [(ngModel)]="data.published" />
         Published

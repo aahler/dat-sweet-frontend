@@ -24,7 +24,9 @@
       </div>
     </div>
   </div>
-  <br />
+  <button class="button is-right" (click)="edit(null, -1)">
+    Add a Post
+  </button>
   <div class="columns" *ngFor="let post of blogPosts; let i = index">
     <div class="column">
       <div class="card">

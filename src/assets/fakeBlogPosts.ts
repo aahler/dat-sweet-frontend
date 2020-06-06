@@ -32,7 +32,7 @@ export class FakeData {
         url: "https://picsum.photos/640/360",
         description: "Description of the image",
         alt: "Test picture",
-        filename: "Test Picture",
+        filename: "fillerimage.png",
       },
       author: {
         id: "123456",
